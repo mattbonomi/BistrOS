@@ -1,0 +1,5 @@
+{
+  "name": "BistrOS",
+  "description": "Sistema integral de pedidos para restaurantes con carrito colaborativo y dashboard gerencial.",
+  "requestFramePermissions": []
+}
