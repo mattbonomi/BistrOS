@@ -8,6 +8,7 @@ export interface Product {
   price: number;
   category: string;
   image: string;
+  description?: string;
 }
 
 export interface CartItem {
@@ -36,7 +37,7 @@ export interface Table {
   pendingReason: PendingReason;
   connectedDevices: number;
   cart: CartItem[];
-  currentOrderId: string | null; // ID of the order currently being processed
+  currentOrderId: string | null;
   openedAt: number | null;
   lastEventAt: number | null;
 }
@@ -73,8 +74,8 @@ export interface DashboardMetrics {
   deadProducts: { name: string; count: number }[];
   secondRoundRate: number;
   tablePerformance: TablePerformance[];
-  occupancyRate: number; // Promedio últimos 7 días
-  recommendedAllocation: RecommendedTable[]; // New field for smart recommendations
+  occupancyRate: number;
+  recommendedAllocation: RecommendedTable[];
 }
 
 export type EventType = 'SCAN_QR' | 'ADD_TO_CART' | 'PLACE_ORDER' | 'REQUEST_WAITER' | 'REQUEST_BILL' | 'ORDER_UPDATE' | 'CLOSE_TABLE' | 'PAYMENT_COMPLETED';
@@ -85,4 +86,11 @@ export interface AnalyticEvent {
   tableId: string;
   type: EventType;
   payload?: any;
+}
+
+export interface ChatMessage {
+  id: string;
+  sender: 'user' | 'ai';
+  text: string;
+  timestamp: number;
 }
